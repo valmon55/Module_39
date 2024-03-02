@@ -4,9 +4,14 @@
              x:Class="XMR.HomeApp.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Style x:Key="buttonStyle" TargetType="Button">
+            <Style TargetType="Button">
                 <Setter Property="CornerRadius" Value="15" />
                 <Setter Property="Opacity" Value="0.8" />
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="True" TargetType="Button">
+                        <Setter Property="TextColor" Value="LightBlue" />
+                    </Trigger>
+                </Style.Triggers>
             </Style>
         </ResourceDictionary>
     </Application.Resources>
