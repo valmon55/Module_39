@@ -46,21 +46,14 @@ namespace XMR.HomeApp.Pages
                 // Показываем текстовое сообщение об ошибке
                 var infoMessage = (Label)stackLayout.Children.Last();
                 infoMessage.Text = "Слишком много попыток! Попробуйте позже.";
-                //infoMessage.TextColor= Color.FromRgb(255,0,0);
-                //stackLayout.Children.Add(new Label
-                //{
-                //    Text = "Слишком много попыток! Попробуйте позже.",
-                //    TextColor = Color.Red,
-                //    VerticalTextAlignment = TextAlignment.Center,
-                //    HorizontalTextAlignment = TextAlignment.Center,
-                //    Padding = new Thickness()
-                //    {
-                //        Bottom = 30,
-                //        Left = 10,
-                //        Top = 30,
-                //        Right = 10
-                //    }
-                //});                
+                
+                // Новый цвет для информационных сообщений
+                var warningColor = Color.FromHex("#ffa500");
+                // Добавлем в словарь.
+                Resources.Add("warningColor", warningColor);
+
+                // Используем добавленный ресурс
+                infoMessage.TextColor = (Color)Resources["warningColor"];
             }
             else
             {
