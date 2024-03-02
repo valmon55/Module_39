@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XMR.HomeApp.Pages.ProfilePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="HomeApp - доступ" HorizontalOptions="Center"  FontSize="Title" Padding="30,10,30,10" />
+            <TableView>
+                <TableView.Root>
+                    <TableRoot>
+                        <TableSection Title="Данные пользователя">
+                            <EntryCell x:Name="loginEntry" Label="Имя" Keyboard="Default"  Text="Андрей" />
+                            <EntryCell x:Name="emailEntry" Label="E-mail" Keyboard="Default"  Text="andrew@homeapp.com" />
+                        </TableSection>
+                        <TableSection Title="Настройки доступа">
+                            <SwitchCell x:Name="gasSwitch" Text="Управление газом" 
+                                        OnChanged="NotifyUser" OnColor="RoyalBlue" />
+                            <SwitchCell x:Name="climateSwitch" Text="Управление климатом" 
+                                        OnChanged="NotifyUser" OnColor="RoyalBlue"  />
+                            <SwitchCell x:Name="electroSwitch" Text="Электропитание" 
+                                        OnChanged="NotifyUser" OnColor="RoyalBlue"  />
+                        </TableSection>
+                    </TableRoot>
+                </TableView.Root>
+            </TableView>
+            <Button x:Name="saveButton" Text="Сохранить" Margin="10,10,10,10" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

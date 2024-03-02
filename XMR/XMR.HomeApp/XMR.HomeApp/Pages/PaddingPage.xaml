@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XMR.HomeApp.Pages.PaddingPage">
+    <ContentPage.Content>
+        <StackLayout Margin="40" Padding="30" BackgroundColor="PaleTurquoise">
+            <BoxView Color="LightSkyBlue" Margin="30"   HeightRequest="100" />
+            <BoxView Color="Blue" Margin="30"  HeightRequest="100" />
+            <BoxView Color="DarkBlue" Margin="30"  HeightRequest="100" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

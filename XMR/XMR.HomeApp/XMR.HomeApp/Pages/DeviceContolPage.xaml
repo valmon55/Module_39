@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XMR.HomeApp.Pages"
+             x:Class="XMR.HomeApp.Pages.DeviceContolPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="stackLayout" BackgroundColor="LightGray" Padding="30,10">
+            <Label Text="Панель управления" HorizontalOptions="Center"  FontSize="Title" Padding="30,10,30,10" />
+            <!--<Label x:Name="pickerText" Text="Напряжение сети, В" FontSize="Medium" />
+            <Picker x:Name="picker" Title="Выберите напряжение сети" >
+                <Picker.Items>
+                    <x:String>220</x:String>
+                    <x:String>120</x:String>
+                </Picker.Items>
+            </Picker>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

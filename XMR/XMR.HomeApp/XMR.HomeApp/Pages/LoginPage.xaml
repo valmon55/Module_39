@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XMR.HomeApp.Pages"
+             x:Class="XMR.HomeApp.Pages.LoginPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="stackLayout" VerticalOptions="Center" HorizontalOptions="Center">
+            <Label Text="HomeApp - Ваш умный дом" FontSize="Title" Padding="30,10,30,10" 
+                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center" 
+                   TextColor="{local:ColorExtention Red=155, Green=100, Blue=90 }" />
+            <Button x:Name="loginButton" Text="{x:Static local:LoginPage.BUTTON_TEXT}" 
+                    Clicked="login_Click" CornerRadius="{local:ButtonView ButtonStyle=SemiRound}"  />
+            <Label x:Name="infoMessage" FontSize="Small" TextColor="{local:ColorExtention Red=255, Green=0,Blue=255 }" Padding="30,10,30,10" 
+                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
