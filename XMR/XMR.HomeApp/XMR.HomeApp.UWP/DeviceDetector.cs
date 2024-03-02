@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Windows.Security.ExchangeActiveSyncProvisioning;
 using Xamarin.Forms;
 
+[assembly: Dependency(typeof(XMR.HomeApp.UWP.DeviceDetector))]
 namespace XMR.HomeApp.UWP
 {
     public class DeviceDetector : IDeviceDetector
