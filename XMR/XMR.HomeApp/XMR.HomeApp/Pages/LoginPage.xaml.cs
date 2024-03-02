@@ -13,6 +13,8 @@ namespace XMR.HomeApp.Pages
     {
         public const string BUTTON_TEXT = "Войти";
         public static int loginCounter = 0;
+        // Создаем объект, возвращающий свойства устройства
+        IDeviceDetector detector = DependencyService.Get<IDeviceDetector>();
         public LoginPage()
         {
             InitializeComponent();
@@ -24,8 +26,12 @@ namespace XMR.HomeApp.Pages
             {
                 loginButton.CornerRadius = 0;
             }
+            // Передаем информацию о платформе на экран
+            runningDevice.Text = detector.GetDevice();
         }
-
+        /// <summary>
+        /// По клику обрабатываем счётчик и выводим разные сообщения
+        /// </summary>
         private void login_Click(object sender, EventArgs e)
         {
             if (loginCounter == 0)
