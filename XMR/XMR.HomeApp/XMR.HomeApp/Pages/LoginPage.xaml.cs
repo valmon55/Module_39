@@ -44,16 +44,16 @@ namespace XMR.HomeApp.Pages
                 // Деактивируем кнопку
                 loginButton.IsEnabled = false;
                 // Показываем текстовое сообщение об ошибке
-                var infoMessage = (Label)stackLayout.Children.Last();
+                //var infoMessage = (Label)stackLayout.Children.Last();
                 infoMessage.Text = "Слишком много попыток! Попробуйте позже.";
                 
-                // Новый цвет для информационных сообщений
-                var warningColor = Color.FromHex("#ffa500");
-                // Добавлем в словарь.
-                Resources.Add("warningColor", warningColor);
+                //// Новый цвет для информационных сообщений
+                //var warningColor = Color.FromHex("#ffa500");
+                //// Добавлем в словарь.
+                //Resources.Add("warningColor", warningColor);
 
-                // Используем добавленный ресурс
-                infoMessage.TextColor = (Color)Resources["warningColor"];
+                //// Используем добавленный ресурс
+                //infoMessage.TextColor = (Color)Resources["warningColor"];
             }
             else
             {
