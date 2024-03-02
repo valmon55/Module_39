@@ -27,7 +27,7 @@ namespace XMR.HomeApp.Pages
                 loginButton.CornerRadius = 0;
             }
             // Передаем информацию о платформе на экран
-            runningDevice.Text = detector.GetDevice();
+            //runningDevice.Text = detector.GetDevice();
 
             // Устанавливаем динамический ресурс с помощью специально метода
             infoMessage.SetDynamicResource(Label.TextColorProperty, "errorColor");
