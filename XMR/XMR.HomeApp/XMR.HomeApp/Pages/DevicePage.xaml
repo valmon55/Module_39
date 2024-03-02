@@ -3,10 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:XMR.HomeApp"
              x:Class="XMR.HomeApp.Pages.DevicePage">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Static/DevicesPage.css" />
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout BackgroundColor="LightGray">
-            <Label Text="HomeApp - Ваши устройства" HorizontalOptions="Center"  FontSize="Title" Padding="30,10,30,10" />
+            <Label Text="HomeApp - Ваши устройства" HorizontalOptions="Center"  FontSize="Title" Padding="30,10,30,10" 
+                    StyleId="header"/>
             <ScrollView BackgroundColor="AliceBlue" x:Name="scrollView"/>
+            <Button BackgroundColor="AliceBlue" x:Name="addButton" Text="Добавить" 
+                    StyleClass="btn-add" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
