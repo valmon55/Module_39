@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:XMR.HomeApp.Pages"
              x:Class="XMR.HomeApp.Pages.LoginPage">
-    <ContentPage.Resources>
+    <!--<ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="errorColor">#FF0000</Color>
             <x:Double x:Key="errorFont">Small</x:Double>
         </ResourceDictionary>
-    </ContentPage.Resources>
+    </ContentPage.Resources>-->
     <ContentPage.Content>
         <StackLayout x:Name="stackLayout" VerticalOptions="Center" HorizontalOptions="Center">
             <Label Text="HomeApp - Ваш умный дом" FontSize="Title" Padding="30,10,30,10" 
@@ -16,7 +16,7 @@
                    TextColor="{local:ColorExtention Red=155, Green=100, Blue=90 }" />
             <Button x:Name="loginButton" Text="{x:Static local:LoginPage.BUTTON_TEXT}" 
                     Clicked="login_Click" CornerRadius="{local:ButtonView ButtonStyle=SemiRound}"  />
-            <Label x:Name="infoMessage" FontSize="{StaticResource Key=errorFont}" TextColor="{StaticResource Key=errorColor}" Padding="30,10,30,10" 
+            <Label x:Name="infoMessage" Padding="30,10,30,10" 
                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
             <Label x:Name="runningDevice" FontSize="15" Padding="30,10,30,10" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
         </StackLayout>

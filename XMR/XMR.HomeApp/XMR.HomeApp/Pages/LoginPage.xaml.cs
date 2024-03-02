@@ -46,7 +46,9 @@ namespace XMR.HomeApp.Pages
                 // Показываем текстовое сообщение об ошибке
                 //var infoMessage = (Label)stackLayout.Children.Last();
                 infoMessage.Text = "Слишком много попыток! Попробуйте позже.";
-                
+                // Используем добавленный глобальный ресурс
+                infoMessage.TextColor = (Color)Application.Current.Resources["errorColor"];
+
                 //// Новый цвет для информационных сообщений
                 //var warningColor = Color.FromHex("#ffa500");
                 //// Добавлем в словарь.
