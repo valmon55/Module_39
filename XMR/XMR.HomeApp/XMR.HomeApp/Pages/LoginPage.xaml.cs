@@ -28,6 +28,9 @@ namespace XMR.HomeApp.Pages
             }
             // Передаем информацию о платформе на экран
             runningDevice.Text = detector.GetDevice();
+
+            // Устанавливаем динамический ресурс с помощью специально метода
+            infoMessage.SetDynamicResource(Label.TextColorProperty, "errorColor");
         }
         /// <summary>
         /// По клику обрабатываем счётчик и выводим разные сообщения
@@ -45,9 +48,13 @@ namespace XMR.HomeApp.Pages
                 loginButton.IsEnabled = false;
                 // Показываем текстовое сообщение об ошибке
                 //var infoMessage = (Label)stackLayout.Children.Last();
+        
+                // Обновляем динамический ресурс по необходимости
+                Resources["errorColor"] = Color.FromHex("#e70d4f");
                 infoMessage.Text = "Слишком много попыток! Попробуйте позже.";
+                
                 // Используем добавленный глобальный ресурс
-                infoMessage.TextColor = (Color)Application.Current.Resources["errorColor"];
+                //infoMessage.TextColor = (Color)Application.Current.Resources["errorColor"];
 
                 //// Новый цвет для информационных сообщений
                 //var warningColor = Color.FromHex("#ffa500");
@@ -59,8 +66,11 @@ namespace XMR.HomeApp.Pages
             }
             else
             {
-                // Изменяем текст кнопки и показываем количество попыток входа
-                loginButton.Text = $"Выполняется вход...   Попыток входа: {loginCounter}";
+                // Обновляем динамический ресурс по необходимости
+                Resources["errorColor"] = Color.FromHex("#ff8e00");
+
+                loginButton.Text = $"Выполняется вход...";
+                infoMessage.Text = $" Попыток входа: { loginCounter}";
             }
 
             // Увеличиваем счетчик
