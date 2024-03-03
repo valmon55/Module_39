@@ -32,8 +32,8 @@ namespace XMR.HomeApp.Pages
             var datePickerText = new Label { Text = "Дата запуска ", Margin = new Thickness(0, 20, 0, 0) };
 
             // Добавляем всё на страницу
-            stackLayout.Children.Add(new Label { Text = "Устройство" });
-            stackLayout.Children.Add(new Entry { BackgroundColor = Color.AliceBlue, Text = "Холодильник" });
+            //stackLayout.Children.Add(new Label { Text = "Устройство" });
+            //stackLayout.Children.Add(new Entry { BackgroundColor = Color.AliceBlue, Text = "Холодильник" });
             stackLayout.Children.Add(datePickerText);
             stackLayout.Children.Add(datePicker);
 
@@ -91,7 +91,15 @@ namespace XMR.HomeApp.Pages
             stackLayout.Children.Add(sliderText);
             stackLayout.Children.Add(slider);
 
-            stackLayout.Children.Add(new Button { Text = "Сохранить", BackgroundColor = Color.Silver, Margin = new Thickness(0, 5, 0, 0) });
+            // Кнопка сохранения
+            var saveButton = new Button
+            {
+                Text = "Сохранить",
+                BackgroundColor = Color.Silver,
+                Margin = new Thickness(0, 5, 0, 0)
+            };
+            saveButton.Clicked += SaveButtonClick;
+            stackLayout.Children.Add(saveButton);
 
             // Регистрируем обработчик события выбора даты
             datePicker.DateSelected += (sender, e) => DateSelectedHandler(sender, e, datePickerText);
@@ -119,6 +127,14 @@ namespace XMR.HomeApp.Pages
         private void TempChangedHandler(object sender, ValueChangedEventArgs e, Label header)
         {
             header.Text = String.Format("Температура: {0:F1}°C", e.NewValue);
+        }
+        /// <summary>
+        /// Обработчик кнопки сохранения
+        /// </summary>
+        private void SaveButtonClick(object sender, EventArgs e)
+        {
+            // После сохранения параметров отключаем пользователю возможность редактирования
+            deviceEntry.IsEnabled = false;
         }
     }
 }
