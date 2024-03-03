@@ -105,16 +105,29 @@ namespace WeatherApp
         /// </summary>
         private void AlarmSetup(object sender, EventArgs e)
         {
-            var layout = new StackLayout();
-            var tableView = new TableView();
+            var layout = new StackLayout() { Margin = new Thickness(20) };
+
+            // Заголовок
+            var header = new Label { Text = "Установить будильник", Margin = new Thickness(0, 20, 0, 0), 
+                                     FontSize = 20, HorizontalTextAlignment = TextAlignment.Center };
+            layout.Children.Add(header);
+
+            // Виджет выбора даты с описанием
+            var datePickerText = new Label { Text = "Дата запуска", Margin = new Thickness(0, 20, 0, 0) };
+            layout.Children.Add(datePickerText);
             var date = new DatePicker()
             {
                 HorizontalOptions = LayoutOptions.Center,
                 Format = "d.MM.yyyy",
+                MinimumDate = DateTime.Now.AddDays(-7),
+                MaximumDate = DateTime.Now.AddDays(7),
                 Date = DateTime.Now.Date
             };
             layout.Children.Add(date);
 
+            // Виджет выбора времени с описанием
+            var timePickerText = new Label { Text = "Время запуска ", Margin = new Thickness(0, 20, 0, 0) };
+            layout.Children.Add(timePickerText);
             var time = new TimePicker()
             {
                 HorizontalOptions = LayoutOptions.Center,
@@ -123,44 +136,46 @@ namespace WeatherApp
             };
             layout.Children.Add(time);
 
+            var soundLevel = new Slider()
+            {
+                ThumbColor = Color.DodgerBlue,
+                MinimumTrackColor = Color.DodgerBlue,
+                MaximumTrackColor = Color.Gray,
+                Minimum = 0,
+                Maximum = 30,
+                Value = 5.0
+            };
             var soundLevelText = new Label()
             {
-                Text = "Громкость ", 
-                HorizontalOptions =  LayoutOptions.Center, 
-                Margin = new Thickness(30,10)
-            };
-            var soundLevel = new Stepper()
-            {
+                Text = $"Громкость: {soundLevel.Value}",
                 HorizontalOptions = LayoutOptions.Center,
-                Margin = new Thickness(30, 10),
-                Minimum = 0,
-                Maximum = 10,
-                Increment = 1,
-                Value = 2
+                Margin = new Thickness(0, 30, 0, 0)
             };
-            soundLevelText.Text = $"Громкость {soundLevel.Value}";
 
             layout.Children.Add(soundLevelText);
             layout.Children.Add(soundLevel);
             soundLevel.ValueChanged += (send, t) => SoundLevelHandler(send, t, soundLevelText);
 
+            // Переключатель и заголовок для него
+            var switchHeader = new Label { Text = "Повторять каждый день", 
+                HorizontalOptions = LayoutOptions.Center, Margin = new Thickness(0, 5, 0, 0) };
+            layout.Children.Add(switchHeader);
             var daily = new Switch()
             {
                 HorizontalOptions = LayoutOptions.Center,
-                Margin = new Thickness(30, 10),
                 IsToggled = false,
-                ThumbColor = Color.LightGray,
-                OnColor = Color.LightBlue
+                ThumbColor = Color.DodgerBlue,
+                OnColor = Color.LightSteelBlue
             };
             layout.Children.Add(daily);
 
             var save = new Button()
             {
-                HorizontalOptions = LayoutOptions.Center,
-                Margin = new Thickness(30, 10),
+                BackgroundColor = Color.Silver,
+                Margin = new Thickness(0, 5, 0, 0),
                 Text = "Сохранить",                
             };
-            save.Clicked += (send, t) => ShowAlarmType(send, t, date, time, daily);
+            save.Clicked += (send, t) => ShowAlarmType(send, t, date.Date + time.Time);
             layout.Children.Add(save);
 
             this.Content = layout;
@@ -184,20 +199,15 @@ namespace WeatherApp
             }
             label.Text = string.Empty;
         }
-        private void ShowAlarmType(object sender, EventArgs e, DatePicker date, TimePicker time, Switch daily)
+        private void ShowAlarmType(object sender, EventArgs e, DateTime alarmDate)
         {
-            var layout = new StackLayout();
-            var alarmText = new Label()
-            {
-                VerticalOptions = LayoutOptions.Center,
-                HorizontalOptions = LayoutOptions.Center,
-                HorizontalTextAlignment = TextAlignment.Center,
-                FontSize = 48,
-                Text = "Будильник сработает" + Environment.NewLine +
-                        (daily.IsToggled ? "" : $"{date.Date.Day}.{date.Date.Month}.{date.Date.Year}") + 
-                        $" в {time.Time.Hours}:{time.Time.Minutes}"
-            };
-            layout.Children.Add(alarmText);
+            var layout = new StackLayout() { Margin = new Thickness(20), VerticalOptions = LayoutOptions.Center };
+            var dateHeader = new Label { Text = $"Будильник сработает:", 
+                FontSize = 20, HorizontalTextAlignment = TextAlignment.Center };
+            var dateText = new Label { Text = $"{alarmDate.Day}.{alarmDate.Month} в {alarmDate.Hour}:{alarmDate.Minute}", 
+                FontSize = 20, HorizontalTextAlignment = TextAlignment.Center };
+            layout.Children.Add(dateHeader);
+            layout.Children.Add(dateText);
             this.Content = layout;
         }
     }
