@@ -210,5 +210,17 @@ namespace WeatherApp
             layout.Children.Add(dateText);
             this.Content = layout;
         }
+        private void AlarmSetupXamlPage(object sender, EventArgs e)
+        {
+            foreach(var element in stackLayout.Children.ToList())
+            {
+                if (element.IsVisible)
+                {
+                    element.IsVisible = false;
+                    //stackLayout.Children.Remove(element);   
+                }
+            }
+            alarmStackLayout.IsVisible= true;
+        }
     }
 }

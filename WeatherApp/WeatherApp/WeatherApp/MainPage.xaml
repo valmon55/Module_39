@@ -8,6 +8,18 @@
         <Label Text="Welcome to WeatherApp!" FontSize="Title" Padding="30,10,30,10" 
                VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
         <Button x:Name="loginButton" Text="{x:Static local:MainPage.BUTTON_TEXT}" Clicked="LoadWeather" />
-        <Button x:Name="alarmButton" Text="{x:Static local:MainPage.BUTTON_ALARM}" Clicked="AlarmSetup" />
+        <Button x:Name="alarmButton" Text="{x:Static local:MainPage.BUTTON_ALARM}" Clicked="AlarmSetupXamlPage" />
+        <StackLayout x:Name="alarmStackLayout" Margin="0, 20, 0, 0" IsVisible="false">
+            <Label Text="Установить будильник" Margin="0, 20, 0, 0" FontSize="20" HorizontalTextAlignment="Center"/>
+            <Label Text="Дата запуска" Margin="0, 20, 0, 0" />
+            <DatePicker HorizontalOptions="Center" Format="d.MM.yyyy"/>
+            <Label Text="Время запуска" Margin="0,20,0,0" />
+            <TimePicker HorizontalOptions="Center" Format="H:mm" />
+            <Label Text="Громкость" HorizontalOptions="Center" Margin="0,30,0,0" />
+            <Slider Minimum="0" Maximum="30" Value="5.0" ThumbColor="DodgerBlue" MinimumTrackColor="DodgerBlue" MaximumTrackColor="Gray" />
+            <Label Text="Повторять каждый день" HorizontalOptions="Center" Margin="0,5,0,0" />
+            <Switch HorizontalOptions="Center" IsToggled="False" ThumbColor="DodgerBlue" OnColor="LightSteelBlue" />
+            <Button Text="Сохранить" Margin="0,5,0,0" BackgroundColor="Silver" />
+        </StackLayout>
     </StackLayout>
 </ContentPage>
