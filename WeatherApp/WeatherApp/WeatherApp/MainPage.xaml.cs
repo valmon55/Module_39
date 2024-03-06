@@ -221,6 +221,32 @@ namespace WeatherApp
                 }
             }
             alarmStackLayout.IsVisible= true;
+            //datePicker.DateSelected += (send, ev) => CheckAlarmDate(send, ev, datePicker.Date);
+            datePicker.PropertyChanged += (send, ev) => CheckAlarmDateTime(send, ev, datePicker.Date.Add(timePicker.Time));
+            timePicker.PropertyChanged += (send, ev) => CheckAlarmDateTime(send, ev, datePicker.Date.Add(timePicker.Time));
+            buttonSave.Pressed += (send, ev) => SaveAlarmTime(send, ev);
+            
         }
+        private void CheckAlarmDateTime(object sender, PropertyChangedEventArgs e, DateTime dateTime)
+        {
+            if (e.PropertyName == "Time" || e.PropertyName == "Date")
+            {
+                VisualStateManager.GoToState(datePicker, dateTime.Date < DateTime.Now.Date ? "Invalid" : "Valid");
+                VisualStateManager.GoToState(timePicker, dateTime < DateTime.Now ? "Invalid" : "Valid");
+            }
+        }
+        private void SaveAlarmTime(object sender, EventArgs e)
+        {
+            //datePicker.IsEnabled = false;
+            //timePicker.IsEnabled = false;
+            //slider.IsEnabled = false;
+            //swit.IsEnabled = false;
+            //buttonSave.IsEnabled = false;
+            timePicker.Resources.
+            labelAlert.Text = $"Будильник сработает: {datePicker.Date.Day}.{datePicker.Date.Month} в {timePicker.Time.Hours}:{timePicker.Time.Minutes}";
+            labelAlert.IsVisible = true; 
+            VisualStateManager.GoToState(datePicker, "Disable");
+        }
+
     }
 }

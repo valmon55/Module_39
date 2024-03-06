@@ -3,6 +3,58 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherApp.App">
     <Application.Resources>
-
+        <Style TargetType="Button">
+            <Style.Triggers>
+                <Trigger Property="IsPressed" Value="True" TargetType="Button">
+                    <Setter Property="TextColor" Value="LightGray"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ValidDateState" TargetType="DatePicker" >
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="ValidStates">
+                        <VisualState x:Name="Valid">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor"  Value="Black"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Invalid">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="IndianRed"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Disable">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="LightGray" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+        <Style x:Key="ValidTimeState" TargetType="TimePicker" >
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="ValidStates">
+                        <VisualState x:Name="Valid">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor"  Value="Black"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Invalid">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="IndianRed"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Disable">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="LightGray" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

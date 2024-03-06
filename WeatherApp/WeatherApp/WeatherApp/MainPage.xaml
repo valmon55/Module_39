@@ -12,14 +12,15 @@
         <StackLayout x:Name="alarmStackLayout" Margin="0, 20, 0, 0" IsVisible="false">
             <Label Text="Установить будильник" Margin="0, 20, 0, 0" FontSize="20" HorizontalTextAlignment="Center"/>
             <Label Text="Дата запуска" Margin="0, 20, 0, 0" />
-            <DatePicker HorizontalOptions="Center" Format="d.MM.yyyy"/>
+            <DatePicker x:Name="datePicker" HorizontalOptions="Center" Format="d.MM.yyyy" Style="{StaticResource ValidDateState}"/>
             <Label Text="Время запуска" Margin="0,20,0,0" />
-            <TimePicker HorizontalOptions="Center" Format="H:mm" />
+            <TimePicker x:Name="timePicker"  HorizontalOptions="Center" Format="H:mm" Style="{StaticResource ValidTimeState}"/>
             <Label Text="Громкость" HorizontalOptions="Center" Margin="0,30,0,0" />
-            <Slider Minimum="0" Maximum="30" Value="5.0" ThumbColor="DodgerBlue" MinimumTrackColor="DodgerBlue" MaximumTrackColor="Gray" />
+            <Slider x:Name="slider" Minimum="0" Maximum="30" Value="5.0" ThumbColor="DodgerBlue" MinimumTrackColor="DodgerBlue" MaximumTrackColor="Gray" />
             <Label Text="Повторять каждый день" HorizontalOptions="Center" Margin="0,5,0,0" />
-            <Switch HorizontalOptions="Center" IsToggled="False" ThumbColor="DodgerBlue" OnColor="LightSteelBlue" />
-            <Button Text="Сохранить" Margin="0,5,0,0" BackgroundColor="Silver" />
+            <Switch x:Name="swit" HorizontalOptions="Center" IsToggled="False" ThumbColor="DodgerBlue" OnColor="LightSteelBlue" />
+            <Button x:Name="buttonSave" Text="Сохранить" Margin="0,5,0,0" BackgroundColor="Silver" />
+            <Label x:Name="labelAlert" Margin="0,20,0,0" FontSize="20" HorizontalTextAlignment="Center" IsVisible="false" />
         </StackLayout>
     </StackLayout>
 </ContentPage>
