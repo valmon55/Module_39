@@ -33,6 +33,7 @@
                 </VisualStateGroupList>
             </Setter>
         </Style>
+        <!--<Style x:Key="ValidDateState" TargetType="DatePicker" BasedOn="{StaticResource BaseStyle}" />-->
         <Style x:Key="ValidTimeState" TargetType="TimePicker" >
             <Setter Property="VisualStateManager.VisualStateGroups">
                 <VisualStateGroupList>

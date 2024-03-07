@@ -242,7 +242,7 @@ namespace WeatherApp
             //slider.IsEnabled = false;
             //swit.IsEnabled = false;
             //buttonSave.IsEnabled = false;
-            timePicker.Resources.
+            //timePicker.Resources.
             labelAlert.Text = $"Будильник сработает: {datePicker.Date.Day}.{datePicker.Date.Month} в {timePicker.Time.Hours}:{timePicker.Time.Minutes}";
             labelAlert.IsVisible = true; 
             VisualStateManager.GoToState(datePicker, "Disable");
